@@ -7,6 +7,8 @@ SET (CMAKE_CXX_FLAGS "-O3 -g")
 
 # Add src and include directories
 include_directories(include)
+include_directories(src)
 
-file(GLOB SOURCES src/*.cpp)
-add_executable(gemm_exp ${SOURCES})
+# build whatevers in test 
+SET (TEST test/basic_gemm.cpp)
+add_executable(gemm_exp ${TEST})

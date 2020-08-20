@@ -2,11 +2,9 @@
 
 
 // Basic Constructor, creates a large static array in heap populated with init_val 
-template <typename T> 
-MatrixBase<T>::MatrixBase(int rows, int cols, T init_val) {
+template <typename T, int rows, int cols> 
+MatrixBase<T,rows,cols>::MatrixBase(T init_val) {
  
-  this->rows = rows; 
-  this->cols = cols; 
 
   /* Populate member matrix with init_val*/ 
   for (int i=0; i<rows; i++){
@@ -16,40 +14,30 @@ MatrixBase<T>::MatrixBase(int rows, int cols, T init_val) {
   }
 }
 
-// Getter Methods for row/col members
-template<typename T> 
-int MatrixBase<T>::getRows() { 
-  return this->rows; 
-}
-
-template<typename T> 
-int MatrixBase<T>::getCols() { 
-  return this->cols; 
-}
 
 // Helper functions for matrix accessing 
-template<typename T> 
-inline T& MatrixBase<T>::at (int row, int col){
+template <typename T, int rows, int cols> 
+inline T& MatrixBase<T,rows,cols>::at (int row, int col){
   /* Takes row/col arguments, and returns a reference to the column array containing the element 
    * (row,col) */ 
 
   return this->row(row)[col]; 
 }
 
-template<typename T> 
-inline T* MatrixBase<T>::row (int row) {
+template <typename T, int rows, int cols> 
+inline T* MatrixBase<T,rows,cols>::row (int row) {
   /* takes an argument for row, and returns a pointer to the row array in the member matrix */ 
 
   return this->mat[row];
 }
 
 // Implement matrix multiplication
-template<typename T> 
-MatrixBase<T>& MatrixBase<T>::operator* (const MatrixBase<T>& x) {
+template <typename T, int rows, int cols> 
+MatrixBase<T,rows,cols>& MatrixBase<T,rows,cols>::operator* (const MatrixBase<T,rows,cols>& x) {
  
   assert( this->getCols() == x.getRows() ) ; 
 
-  MatrixBase<T> ans (this->rows, x.getCols(), 0); 
+  MatrixBase<T,rows,> ans (this->rows, x.getCols(), 0); 
   T buf; 
 
   for (int i = 0; i < this->rows; i++){

@@ -59,19 +59,20 @@ class MatrixBase {
       
       return data[ (col * this->rows) + row ]; }; 
 
-    MatrixBase& operator* (const MatrixBase& x) {
-    
-      assert(this->cols == x.getRows()); // dims must match for gemm 
-      MatrixBase<T> ans(this->rows, x.getCols(), 0); 
+     static MatrixBase<T>* mul (MatrixBase<T>& x, MatrixBase<T>& w) {
+
+      assert(x.getCols() == w.getRows()); // dims must match for gemm 
+
+      auto ans = new MatrixBase<T>(0, x.getRows(), w.getCols());
 
       // Naive GEMM algorithm with no optimizations 
-      for (int i = 0; i < this.getRows(); i++) {
-        for (int j = 0; j < x.getCols(); j++) {
+      for (int i = 0; i < x.getRows(); i++) {
+        for (int j = 0; j < w.getCols(); j++) {
           
           T buf = 0; 
-          for (int k = 0; k < this.getCols(); k++) {
+          for (int k = 0; k < w.getCols(); k++) {
 
-            buf += this->at(i,k) * x->at(k,j) ; 
+            buf += x.at(i,k) * w.at(k,j) ; 
           } 
 
           ans->at(i,j) = buf; 
@@ -79,6 +80,8 @@ class MatrixBase {
       }  
         return ans; 
     };  
+
+    
 
 
     ~MatrixBase() { delete[] data; }; 
@@ -88,8 +91,7 @@ class MatrixBase {
     int cols; 
 
     T* data; 
+    };  
 
-
-}; 
 
 #endif 

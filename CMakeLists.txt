@@ -5,6 +5,8 @@ project(gemm_exp)
 SET (CMAKE_CXX_COMPILER "clang++")  
 SET (CMAKE_CXX_FLAGS "-O3 -g")
 SET (CMAKE_EXPORT_COMPILE_COMMANDS ON)
+SET (EIGEN "/usr/local/include/eigen3")
+
 # Add src and include directories
 include_directories(include)
 include_directories(src)
@@ -12,3 +14,6 @@ include_directories(src)
 # build whatevers in test 
 SET (TEST test/basic_gemm.cpp)
 add_executable(gemm_exp ${TEST})
+
+# add Eigen as an external directory 
+target_include_directories(gemm_exp PUBLIC ${EIGEN})

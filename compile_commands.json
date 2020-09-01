@@ -1,7 +1,7 @@
 [
 {
   "directory": "/hack/build",
-  "command": "clang++   -I/hack/include -I/hack/src  -O3 -g   -o CMakeFiles/gemm_exp.dir/test/basic_gemm.cpp.o -c /hack/test/basic_gemm.cpp",
+  "command": "clang++   -I/hack/include -I/hack/src -I/eigen  -O3 -g   -o CMakeFiles/gemm_exp.dir/test/basic_gemm.cpp.o -c /hack/test/basic_gemm.cpp",
   "file": "/hack/test/basic_gemm.cpp"
 }
 ]

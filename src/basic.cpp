@@ -17,6 +17,7 @@ int main() {
   const int mat_b_val = 200; 
 
   int i,j,k;
+
 /* 
  * Super inefficent implementation using double pointers 
  * This implementation calls the heap allocator *N* times, where N is the number of columns

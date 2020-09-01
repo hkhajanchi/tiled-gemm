@@ -38,6 +38,7 @@ class MatrixBase {
 
    
     inline T& at (int row, int col) {
+
       /* Since we want to access the (i,j) element of the 2d array we need to convert the indexing to match
        * the 1D array. We need to account for column-major ordering in memory, where each contiguous column
        * is a separate line in memory 
@@ -82,8 +83,6 @@ class MatrixBase {
     };  
 
     
-
-
     ~MatrixBase() { delete[] data; }; 
     
   private: 

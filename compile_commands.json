@@ -1,7 +1,7 @@
 [
 {
-  "directory": "/home/hkhajanchi/tiled-gemm/build",
-  "command": "/home/hkhajanchi/10.0.0/src/build/bin/clang++  -I/home/hkhajanchi/tiled-gemm/include -I/home/hkhajanchi/tiled-gemm/src -O3 -g -o CMakeFiles/gemm_exp.dir/test/basic_gemm.cpp.o -c /home/hkhajanchi/tiled-gemm/test/basic_gemm.cpp",
-  "file": "/home/hkhajanchi/tiled-gemm/test/basic_gemm.cpp"
+  "directory": "/hack/build",
+  "command": "clang++   -I/hack/include -I/hack/src  -O3 -g   -o CMakeFiles/gemm_exp.dir/test/basic_gemm.cpp.o -c /hack/test/basic_gemm.cpp",
+  "file": "/hack/test/basic_gemm.cpp"
 }
 ]

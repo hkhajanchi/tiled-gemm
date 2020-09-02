@@ -13,7 +13,7 @@ const mat_t initVal = 100;
 MatrixBase<mat_t>* matMultScope(const int dim) {
 
   auto &w  = *(new MatrixBase<mat_t>(initVal,dim,dim));
-  auto &x = *(new MatrixBase<mat_t>(initVal,dim,dim)); 
+  auto &x  = *(new MatrixBase<mat_t>(initVal,dim,dim)); 
 
   auto *ans = MatrixBase<mat_t>::mul(w,x); 
   return ans;

@@ -26,7 +26,8 @@ RUN apt-get update && \
     thefuck \
     fish \ 
     tmux \ 
-    valgrind  
+    valgrind \ 
+    kcachegrind \
 
 # Get Eigen
 RUN git clone https://gitlab.com/libeigen/eigen.git
